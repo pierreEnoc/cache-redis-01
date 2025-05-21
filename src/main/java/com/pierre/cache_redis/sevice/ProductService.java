@@ -4,6 +4,7 @@ import com.pierre.cache_redis.entity.Product;
 import com.pierre.cache_redis.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
+    @Cacheable("products-cache")
     public List<Product> ListAllProducts() {
         log.info("c=ProductService m=ListAllProducts() - List all products");
         return productRepository.ListAllProducts();

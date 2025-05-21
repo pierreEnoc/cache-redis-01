@@ -1,0 +1,8 @@
+#spring.application.name=cache-redis
+spring:
+  cache:
+    type: simple
+logging:
+  level:
+    org.springframework.cache: TRACE
+
